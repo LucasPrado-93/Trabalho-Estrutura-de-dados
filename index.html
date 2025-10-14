@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="pt-br">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Comparador de Algoritmos de Ordenação</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>Comparador de Algoritmos de Ordenação</h1>
+    <div class="sub">Bubble • Selection • Insertion • Merge • Quick • Heap</div>
+  </header>
+
+  <div class="container">
+    <div class="panel">
+      <div class="grid">
+        <div>
+          <label for="tamanho">Tamanho do vetor</label>
+          <input id="tamanho" type="number" min="5" value="1" />
+          <div id="preview" class="preview"></div>
+        </div>
+        <div>
+          <label for="tipo">Característica do vetor</label>
+          <select id="tipo">
+            <option value="aleatorio">Aleatório</option>
+            <option value="ordenado">Ordenado</option>
+            <option value="inverso">Inversamente ordenado</option>
+            <option value="quase">Quase ordenado</option>
+          </select>
+          <div class="hint">“Quase” = 90% ordenado e 10% bagunçado.</div>
+        </div>
+        <div>
+          <label>&nbsp;</label>
+          <div class="actions">
+            <button id="btnRodar">Rodar teste</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="table-wrap">
+        <table id="tabela">
+          <thead>
+            <tr>
+              <th>Algoritmo</th>
+              <th>Tempo (ms)</th>
+              <th>Comparações</th>
+              <th>Trocas</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td colspan="4" style="color:#d5e0f3">Execute um teste para ver os resultados…</td></tr>
+          </tbody>
+          
+        </table>
+      </div>
+
+      <div class="footer">
+        <span class="badge" id="badgeInfo">—</span>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
