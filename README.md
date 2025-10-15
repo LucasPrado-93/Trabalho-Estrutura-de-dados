@@ -1,6 +1,6 @@
-# Projeto — Comparador de Algoritmos de Ordenação (Atualizado)
+# Projeto — Comparador de Algoritmos de Ordenação
 
-Este pacote contém o projeto **atualizado por completo**, com:
+Este pacote contém o projetocom:
 
 - Relatório comparativo dentro do site (gráficos e conclusões).
 - Botões:
@@ -14,6 +14,5 @@ Este pacote contém o projeto **atualizado por completo**, com:
 2. Abra `index.html` no navegador (de preferência Chrome/Edge/Firefox atual).
 3. Certifique-se de estar **conectado à internet** (Chart.js, html2canvas e jsPDF são carregados por CDN).
 4. Use os botões no topo:
-   - **Gerar relatório** → gráficos principais (média de 3 execuções por ponto).
-   - **Teste completo (melhor/médio/pior)** → roda 5 execuções por ponto e mostra os 3 gráficos (um por cenário) + tabela.
+   - **Rodar Teste → roda 5 execuções por ponto e mostra os 3 gráficos (um por cenário) + tabela.
    - **Exportar PDF** → gera o PDF do relatório.
