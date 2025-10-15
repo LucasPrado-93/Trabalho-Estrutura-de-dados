@@ -5,6 +5,11 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Comparador de Algoritmos de Ordenação</title>
   <link rel="stylesheet" href="style.css" />
+  <!-- Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+  <!-- html2canvas + jsPDF for PDF export -->
+  <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jspdf@2.5.1/dist/jspdf.umd.min.js"></script>
 </head>
 <body>
   <header>
@@ -12,54 +17,88 @@
     <div class="sub">Bubble • Selection • Insertion • Merge • Quick • Heap</div>
   </header>
 
-  <div class="container">
-    <div class="panel">
-      <div class="grid">
-        <div>
-          <label for="tamanho">Tamanho do vetor</label>
-          <input id="tamanho" type="number" min="5" value="1" />
-          <div id="preview" class="preview"></div>
-        </div>
-        <div>
-          <label for="tipo">Característica do vetor</label>
-          <select id="tipo">
-            <option value="aleatorio">Aleatório</option>
-            <option value="ordenado">Ordenado</option>
-            <option value="inverso">Inversamente ordenado</option>
-            <option value="quase">Quase ordenado</option>
-          </select>
-          <div class="hint">“Quase” = 95% ordenado e 5% bagunçado.</div>
-        </div>
-        <div>
-          <label>&nbsp;</label>
-          <div class="actions">
-            <button id="btnRodar">Rodar teste</button>
-          </div>
+  <div class="container panel">
+    <div class="grid">
+      <div>
+        <label for="tamanho">Tamanho do vetor</label>
+        <input id="tamanho" type="number" min="5" value="150" />
+        <div id="preview" class="preview"></div>
+      </div>
+      <div>
+        <label for="tipo">Característica do vetor</label>
+        <select id="tipo">
+          <option value="aleatorio">Aleatório</option>
+          <option value="ordenado">Ordenado</option>
+          <option value="inverso">Inversamente ordenado</option>
+          <option value="quase">Quase ordenado</option>
+        </select>
+        <div class="hint">“Quase” = 95% ordenado e 5% bagunçado.</div>
+      </div>
+      <div>
+        <label>&nbsp;</label>
+        <div class="actions">
+          <button id="btnRodar">Rodar teste</button>
+          <button id="btnPdf" class="secondary">Exportar PDF</button>
         </div>
       </div>
+    </div>
 
+    <div class="table-wrap">
+      <table id="tabela">
+        <thead>
+          <tr>
+            <th>Algoritmo</th>
+            <th>Tempo (ms)</th>
+            <th>Comparações</th>
+            <th>Trocas</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td colspan="4" style="color:#d5e0f3">Execute um teste para ver os resultados…</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="footer">
+      <span class="badge" id="badgeInfo">—</span>
+    </div>
+  </div>
+
+  <!-- RELATÓRIO COMPLETO -->
+  <section id="relatorio" class="report panel">
+    <h2>📊 Relatório de Testes (5 execuções por ponto)</h2>
+    <p class="muted">
+      Para cada algoritmo e tamanho, executamos <strong>5 vezes</strong> no cenário selecionado e usamos a <strong>média</strong> para os gráficos.
+      A tabela abaixo resume <em>média</em>, <em>desvio-padrão</em>, <em>mín</em> e <em>máx</em> de <strong>tempo</strong> no maior N testado, além das médias de comparações e trocas.
+    </p>
+
+    <div class="charts">
+      <div class="chart-card"><h3>Tempo (ms) × Tamanho</h3><canvas id="chartTempo"></canvas></div>
+      <div class="chart-card"><h3>Comparações × Tamanho</h3><canvas id="chartComp"></canvas></div>
+      <div class="chart-card"><h3>Trocas × Tamanho</h3><canvas id="chartTrocas"></canvas></div>
+    </div>
+
+    <div class="conclusions" id="stats">
+      <h3>Resumo estatístico (N máximo)</h3>
+      <p class="muted" id="statsCaption"></p>
       <div class="table-wrap">
-        <table id="tabela">
+        <table id="tabelaStats" class="mini">
           <thead>
             <tr>
               <th>Algoritmo</th>
-              <th>Tempo (ms)</th>
-              <th>Comparações</th>
-              <th>Trocas</th>
+              <th>Tempo — média (ms)</th>
+              <th>Tempo — desvio (ms)</th>
+              <th>Tempo — mín (ms)</th>
+              <th>Tempo — máx (ms)</th>
+              <th>Comparações (média)</th>
+              <th>Trocas (média)</th>
             </tr>
           </thead>
-          <tbody>
-            <tr><td colspan="4" style="color:#d5e0f3">Execute um teste para ver os resultados…</td></tr>
-          </tbody>
-          
+          <tbody></tbody>
         </table>
       </div>
-
-      <div class="footer">
-        <span class="badge" id="badgeInfo">—</span>
-      </div>
     </div>
-  </div>
+  </section>
 
   <script src="script.js"></script>
 </body>
