@@ -6,7 +6,7 @@ function gerarVetor(tamanho, tipo = "aleatorio") {
   if (tipo === "inverso") return vetor.sort((a, b) => b - a);
   if (tipo === "quase") {
     vetor.sort((a, b) => a - b);
-    const qtd = Math.max(1, Math.floor(tamanho * 0.1));
+    const qtd = Math.max(1, Math.floor(tamanho * 0.05));
     for (let k = 0; k < qtd; k++) {
       const i = Math.floor(Math.random() * tamanho);
       const j = Math.floor(Math.random() * tamanho);

@@ -12,9 +12,9 @@
   box-sizing: border-box;
 }
 body {
-  margin: 5px;
-  font-family: Inter;
-  background: var(--bg);
+  margin: 0;
+  font-family: Inter, system-ui, Segoe UI, Roboto, Arial, sans-serif;
+  background: linear-gradient(145deg, #0b1020, #0e1428 60%, #121b33);
   color: var(--text);
 }
 header {
@@ -28,8 +28,9 @@ h1 {
 }
 .sub {
   color: var(--muted);
-  font-size: 1rem;
+  font-size: 0.95rem;
 }
+
 .container {
   max-width: 1100px;
   margin: 18px auto 40px;
@@ -37,7 +38,7 @@ h1 {
 }
 .panel {
   background: var(--card);
-  border: 0px solid #1c2442;
+  border: 1px solid #1c2442;
   border-radius: 18px;
   padding: 16px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
@@ -45,8 +46,8 @@ h1 {
 .grid {
   display: grid;
   gap: 12px;
-  margin: 10px 20px;
 }
+
 label {
   display: block;
   font-size: 0.85rem;
@@ -133,6 +134,9 @@ tbody tr:hover {
 .algo {
   font-weight: 700;
 }
+.ms {
+  font-variant-numeric: tabular-nums;
+}
 .ok {
   color: var(--ok);
 }
@@ -158,7 +162,8 @@ tbody tr:hover {
   color: #b9c3d8;
 }
 @media (min-width: 720px) {
-  .grid {
-    grid-template-columns: 1fr 1fr 1fr;
+    .grid {
+      grid-template-columns: 1fr 1fr 1fr;
+    }
   }
-}
+  
